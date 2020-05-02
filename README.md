@@ -1,4 +1,4 @@
-# shroomid.net
+# [shroomid.net](https://shroomid.net)
 Spring 2020 CPSC 462  
 The goal of shroomid.net is to id poison mushrooms from user photos
 
