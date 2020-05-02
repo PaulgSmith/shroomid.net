@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushroom Identifier</title>
+    <link href="https://fonts.googleapis.com/css?family=Ramabhadra&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/shroomid.net/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="stylesheets.css">
+</head>
+
+<body>
+  <div id="app"></div>
+    <!-- navigation bar -->
+    <div id="directory">
+        <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">Mushroom Identifier</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <!--<a class="nav-link" href="About.html">About <span class="sr-only">(current)</span></a> -->
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="info-container">
+        <div id="message-alert" class="container-fluid">
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <span class="badge badge-pill badge-danger">Warning</span>
+                Misidentified mushrooms can make you sick or kill you.
+                Do not eat mushrooms if you are not 100% certain of the identity.
+                Use many resources, and be skeptical of your own conclusions.
+                The site takes no responsibility for damage caused by wrong identifications.
+                If you continue, you agree to view this website under these terms.
+            </div>
+        </div>
+
+        <!-- user and result image -->
+        <div class="container Pcontainer">
+            <div class="pics-container">
+                <div class="pic-container"><img id= shroom src="img/userTest.png" class="mushroomImg"></div>
+            </div>
+            <div id = "results-container">
+              <p id = "res"></p>
+            </div>
+            <div class="btn-container">
+                  <form>
+                    <input id="photoupload" type="file" accept="image/*">
+                    <br>
+                    <button type="submit" class="btn btn-primary" id = "myButton">Upload Photo and Run Code</button>
+                  </form>
+            </div>
+
+        </div>
+        </div>
+    </div>
+    <script>
+       $(document).ready(function(){
+     $("form").submit(function(){
+        event.preventDefault();
+        addPhoto('test').then(function(args){console.log(args); if (args != 1) {api_gateway_put(args);$("#myButton").attr("disabled", true);} });
+
+     });
+       });
+    </script>
+</body>
+
+</html>

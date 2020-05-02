@@ -1,0 +1,31 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:GetLogEvents",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:*:*:*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "s3:Get*"
+            ],
+            "Resource": "arn:aws:s3:::shroom-test-bucket/*",
+            "Effect": "Allow",
+            "Sid": "Stmt1501000329789"
+        },
+        {
+            "Action": [
+                "s3:Get*"
+            ],
+            "Resource": "arn:aws:s3:::shroom-model-bucket/*",
+            "Effect": "Allow",
+            "Sid": "Stmt150100867543"
+        }
+    ]
+}
