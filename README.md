@@ -19,7 +19,7 @@ For this project we are using the [dataset](https://github.com/visipedia/fgvcx_f
 Joseph Santiago
 #### Model Creation
 Haowen Yong & Ahmed Alweheiby
-#### Back-End Development
+#### Back-End Development & Lead
 Paul Smith
 
 #### References & Citations
